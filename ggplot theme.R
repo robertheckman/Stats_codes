@@ -21,7 +21,7 @@ theme_oeco <- theme_classic() +
         legend.text.align = 0, legend.background = element_blank(),
         plot.subtitle = element_text(size = 10, vjust = 0), #plot.margin = unit(c(0.35, 0, 0.25, 0), 'cm'),
         strip.background = element_blank(), strip.text = element_text(hjust = 0.5, size = 10 ,vjust = 0), 
-        strip.placement = 'outside', panel.spacing.x = unit(-0.5, 'cm'))
+        strip.placement = 'outside', panel.spacing.x = unit(0, 'cm'))
   theme_set(theme_oeco)
 
   
