@@ -8,9 +8,6 @@ require(gridExtra)
 annotate_plot <- function(label) { annotation_custom(grobTree(textGrob(label, x = 0.1,  y = 0.95, hjust = 0, vjust = 1,
                                                                        gp = gpar(col = "black", fontsize = 11)))) }
 
-annotate_plot <- function(label) { annotation_custom(grobTree(textGrob(label, x = 0.1,  y = 0.95, hjust = 0, vjust = 1,
-                                                                       gp = gpar(col = "black", fontsize = 9)))) }
-
 cubroot_trans = function() trans_new('cubroot', transform= function(x) x^(1/3),
                                      inverse = function(x) x^3 )
 
