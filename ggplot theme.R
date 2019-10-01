@@ -26,7 +26,7 @@ theme_oeco <- theme_classic() +
   
 update_geom_defaults('boxplot', list(size = 0.5))
 update_geom_defaults('pointrange', list(size = 0.35))
-update_geom_defaults('smooth', list(span = 1, size = 0.5)) 
+update_geom_defaults('smooth', list(span = 1, size = 0.5, colour = 'black')) 
 update_geom_defaults('point', list(size = 2))
 update_geom_defaults('errorbar', list(size = 0.35))
 update_geom_defaults('hline', list(size = 0.35, colour = 'grey50'))
