@@ -11,6 +11,9 @@ annotate_plot <- function(label) { annotation_custom(grobTree(textGrob(label, x 
 cubroot_trans = function() trans_new('cubroot', transform= function(x) x^(1/3),
                                      inverse = function(x) x^3 )
 
+cloglog_trans <- function() trans_new('cloglog', transform = function(x) log(-log(1 - x)), 
+                                      inverse = function(x) 1 - exp(-exp(x)))
+
 theme_oeco <- theme_classic() +
   theme(axis.title = element_text(size = 10), axis.text = element_text(size = 10), 
         axis.line.x = element_line(size = 0.35, colour = 'grey50'), axis.line.y = element_line(size = 0.35, colour = 'grey50'),
