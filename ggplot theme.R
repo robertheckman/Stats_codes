@@ -41,18 +41,23 @@ resids.fig <- function(mod, df) {
   residdf <- dplyr::mutate(df, resids = residuals(mod, type = 'normalized'),
                            fits = fitted(mod))
   
-  fig1 <- ggplot(residdf, aes(x = nutrients, y = resids)) + geom_boxplot() + 
+  fig1 <- ggplot(residdf, aes(x = nutrients, y = resids)) + 
+    geom_boxplot() + 
     geom_boxplot(aes(x = enemies), colour = 'red') +
     geom_boxplot(aes(x = provenance), colour = 'blue') + 
     labs(y = 'Residuals\n', x = '\nTreatment levels')
   
-  fig2 <- ggplot(residdf, aes(x = fits, y = resids)) + geom_point() +
+  fig2 <- ggplot(residdf, aes(x = fits, y = resids)) + 
+    geom_point() +
     labs(x = '\nFitted values', y = '\n\n')
   
-  fig3 <- ggplot(residdf) + stat_qq(aes(sample = resids)) +
+  fig3 <- ggplot(residdf) +
+    stat_qq(aes(sample = resids)) +
+    stat_qq_line(aes(sample = resids)) +
     labs(x = '\nTheoretical Quantiles', y = 'Sample Quantiles\n')
   
-  fig4 <- ggplot(residdf, aes(x = resids)) + geom_histogram(aes(y=..density..), colour = 'grey50') +
+  fig4 <- ggplot(residdf, aes(x = resids)) + 
+    geom_histogram(aes(y=..density..), colour = 'grey50') +
     labs(x = '\nResiduals', y = 'Frequency\n') + scale_y_continuous(expand = c(0, 0)) +
     stat_function(fun = dnorm, color = "red", args = list(mean = mean(residdf$resids), 
                                                           sd = sd(residdf$resids)))
@@ -75,7 +80,9 @@ resids.lmerfig <- function(mod, df) {
     geom_boxplot(colour = 'red') + 
     geom_boxplot(aes(x = enemies), colour = 'blue') 
   
-  fig3 <- ggplot(residdf) + stat_qq(aes(sample = resids)) +
+  fig3 <- ggplot(residdf) + 
+    stat_qq(aes(sample = resids)) +
+    stat_qq_line(aes(sample = resids)) +
     labs(x = '\nTheoretical Quantiles', y = 'Sample Quantiles\n')
   
   
@@ -104,7 +111,9 @@ resids.lme1fig <- function(mod, df) {
   fig2 <- ggplot(residdf, aes(x = .fitted, y = .resid)) + geom_point() +
     labs(x = '\nFitted values', y = '\n\n')
   
-  fig3 <- ggplot(residdf) + stat_qq(aes(sample = .resid)) +
+  fig3 <- ggplot(residdf) + 
+    stat_qq(aes(sample = .resid)) +
+    stat_qq_line(aes(sample = .resid)) +
     labs(x = '\nTheoretical Quantiles', y = 'Sample Quantiles\n')
   
   fig4 <- ggplot(residdf, aes(x = .resid)) + geom_histogram(aes(y=..density..), colour = 'grey50') +
@@ -133,7 +142,9 @@ resids.lme2fig <- function(mod, df) {
   fig2 <- ggplot(residdf, aes(x = .fitted, y = .resid)) + geom_point() +
     labs(x = '\nFitted values', y = '\n\n')
   
-  fig3 <- ggplot(residdf) + stat_qq(aes(sample = .resid)) +
+  fig3 <- ggplot(residdf) + 
+    stat_qq(aes(sample = .resid)) +
+    stat_qq_line(aes(sample = .resid)) +
     labs(x = '\nTheoretical Quantiles', y = 'Sample Quantiles\n')
   
   fig4 <- ggplot(residdf, aes(x = .resid)) + geom_histogram(aes(y=..density..), colour = 'grey50') +
@@ -164,7 +175,9 @@ resids.lme3fig <- function(mod, df) {
   fig2 <- ggplot(residdf, aes(x = .fitted, y = .resid)) + geom_point() +
     labs(x = '\nFitted values', y = '\n\n')
   
-  fig3 <- ggplot(residdf) + stat_qq(aes(sample = .resid)) +
+  fig3 <- ggplot(residdf) + 
+    stat_qq(aes(sample = .resid)) +
+    stat_qq_line(aes(sample = .resid)) +
     labs(x = '\nTheoretical Quantiles', y = 'Sample Quantiles\n')
   
   fig4 <- ggplot(residdf, aes(x = .resid)) + geom_histogram(aes(y=..density..), colour = 'grey50') +
